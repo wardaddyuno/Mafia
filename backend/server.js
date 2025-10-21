@@ -47,7 +47,21 @@ wss.on('connection', (ws) => {
     }
     if(type==='startGame'){
       const names = game.players.map(p=>p.name);
-      if(names.length<5){ ws.send(JSON.stringify({ type:'error', message:'Need at least 5 players' })); return; }
+      if (game.players.length < 5) {
+  broadcast(game, { type:'error', message:`Need at least 5 players. Currently joined: ${game.players.length}` });
+  return;
+}
+      setTimeout(() => {
+  const names = game.players.map(p => p.name);
+  game.roles = assignRoles(names);
+  for (const p of game.players) {
+    const r = game.roles.find(rr => rr.player === p.name).role;
+    p.role = r;
+    try { p.ws.send(JSON.stringify({ type:'yourRole', role: r })); } catch {}
+  }
+  game.phase = 'night';
+  broadcastStory(game, '🌙 Night 1 begins... The town falls silent.');
+}, 500);
       game.roles = assignRoles(names);
       for(const p of game.players){ const r = game.roles.find(rr=>rr.player===p.name).role; p.role=r; try{ p.ws.send(JSON.stringify({ type:'yourRole', role:r })); }catch{} }
       game.phase='night'; broadcastStory(game,'🌙 Night 1 begins... The town falls silent.'); return;
