@@ -1,4 +1,5 @@
-# Mafia Royale (Render-ready)
+# Wardaddy's Mafia Royale — Render-ready
 
-Build: `npm run install-all && npm run build`
-Start: `npm start`
+Host: /?mode=host  | Player: /?mode=player  | Display: /?mode=display
+Build: npm run install-all && npm run build
+Start: npm start
