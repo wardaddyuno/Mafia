@@ -1,5 +1,3 @@
-# Wardaddy's Mafia Royale — Render-ready
-
-Host: /?mode=host  | Player: /?mode=player  | Display: /?mode=display
+# Wardaddy's Mafia Royale v2
 Build: npm run install-all && npm run build
 Start: npm start
