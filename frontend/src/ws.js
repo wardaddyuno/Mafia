@@ -1,2 +1,0 @@
-import {useEffect,useRef,useState} from 'react';
-export const useWS=()=>{const r=useRef(null);const [evs,setE]=useState([]);useEffect(()=>{const proto=location.protocol==='https:'?'wss':'ws';const w=new WebSocket(`${proto}://${location.host}/ws`);r.current=w;const on=(e)=>setE(v=>[...v,JSON.parse(e.data)]);w.addEventListener('message',on);return()=>{w.removeEventListener('message',on);w.close();};},[]);const send=(o)=>r.current&&r.current.readyState===1&&r.current.send(JSON.stringify(o));return{send,events:evs}};
