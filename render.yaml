@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: wardaddys-mafia-royale
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    autoDeploy: false
+    healthCheckPath: /healthz
