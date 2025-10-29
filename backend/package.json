@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "2.2.0",
+  "version": "v2.3",
   "type": "module",
   "main": "server.js",
   "dependencies": {
@@ -9,8 +9,5 @@
   },
   "scripts": {
     "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=18.x"
   }
 }

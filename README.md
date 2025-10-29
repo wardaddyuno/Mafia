@@ -1,3 +1,3 @@
-# Wardaddy’s Mafia Royale v2.2
+# Wardaddy’s Mafia Royale v2.3
 
-Render-ready build with fixes.
+Render-ready build. Default landing = Host.
