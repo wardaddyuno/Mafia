@@ -2,7 +2,7 @@
 const audioRef = useRef(null);
 
 useEffect(() => {
-  const a = new Audio("/static/ambient_night.wav");
+  const a = new Audio("/static/ambient_night.mp3");
   a.loop = true;
   a.volume = 0.35;
   audioRef.current = a;
